@@ -1,0 +1,35 @@
+\documentclass{article}
+
+\title{6.S095 Final Project: Summary}
+\author{Daniel Whatley}
+
+\usepackage{amsmath}
+\usepackage[top=1.3in, bottom=1.3in, left=1.2in, right=1.2in]{geometry}
+
+\begin{document}
+\maketitle
+
+\section{Problem Statement}
+
+\textit{Simulated annealing} [1] is a rather well-known approach to solving search and planning problems. As with most search algorithms in AI, it starts with any ``random'' solution, then improves on it. Simulated annealing (henceforth abbreviated as SA) takes the approach of choosing a threshold $T$, and chooses the next solution in sequence by looking solutions ``not much worse'' than the current solution with a certain probability. ``Not much worse'' and ``certain'' are both determined by the current value of $T$, and this value changes over the period of the search. The idea is that the sequence of solutions found by the search will eventually lead to the optimal or a near-optimal solution.
+
+\textit{Threshold accepting} (TA) [2] is an approach developed several years after SA, and has been empirically shown to be better than SA for a few example problems. TA eliminates the probabilistic nature of choosing the next solution---the next solution in sequence will always be chosen if it is ``not much worse'' (again determined by $T$). However, there is no theoretical evidence that TA is in fact better than SA. This will be the focus of my study. (Formal definition of TA and SA, including pseudocode, are given in [2].)
+
+Two Traveling Salesman Problems (TSP) were given in [2], one bigger than the other. According to the authors, the algorithm does not do as well in the larger problem as in the smaller one, due to the smaller problem being a ``very regular structure'' compared with the larger one. In this study, I will investigate this claim, taking a collection of TSPs (that have been solved) and running TA on them.
+
+\section{Approach}
+
+I will most likely find solved TSP problems either online or papers ([2] mentions a couple, but I'm not sure yet if the actual coordinates are available or not). Then I will write a standard TA algorithm and test it against the TSPs.
+
+\section{Expected Results}
+
+I will investigate what ``irregularity'' has to do with how well TA does. Until I get some numbers, I am not sure what results I expect. The authors' initial hunch---that irregularity does indeed mean harm---may very well be right. Wish me luck.
+
+\section*{References}
+
+\begin{enumerate}
+\item S. Kirkpatrick, C. D. Gelatt, M. P. Vecchi, \textit{Science} \textbf{220}, 671 (1983)
+\item G. Dueck, T. Scheuer, \textit{Journal of Computational Physics} \textbf{90}, 161-175 (1990)
+\end{enumerate}
+
+\end{document}
